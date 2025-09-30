@@ -205,25 +205,6 @@ See `docs/TROUBLESHOOTING.md` for complete guide.
 
 This template is optimized for Mexican market automation:
 
-### WhatsApp Business Integration
-- Connect WhatsApp Business API
-- Automate customer responses
-- Send order confirmations
-
-### SAT/Tax Compliance
-- Parse SAT invoices (CFDI XML)
-- Generate compliance reports
-- Automate tax filing reminders
-
-### E-commerce Automation
-- Order processing from Mercado Libre/Amazon MX
-- Inventory sync across platforms
-- Customer notification sequences
-
-### CRM Integration
-- Sync contacts to Google Sheets
-- Automate follow-ups via WhatsApp
-- Track sales pipeline
 
 ## 🤝 Contributing
 
