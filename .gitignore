@@ -34,3 +34,7 @@ Thumbs.db
 # Backup files
 backups/
 *.backup
+
+# Claude AI
+.claude/
+CLAUDE.md 

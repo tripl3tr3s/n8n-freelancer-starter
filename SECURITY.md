@@ -37,13 +37,29 @@ If you're enrolled in the n8n Level 1 course, you received personal credentials:
 ## 🚀 Production Deployments
 
 ### For Your Learning Instance
-Set your course credentials as Railway environment variables to complete course exercises.
+
+⚠️ **IMPORTANT:** Do NOT set course credentials as Railway environment variables!
+
+Your course credentials are stored in `.env.local` (git-ignored). Use them in n8n workflows:
+
+**Option 1: n8n Credentials (Recommended)**
+1. Go to n8n UI > Credentials > Add Credential
+2. Choose "Header Auth" or "Generic"
+3. Enter your course API key from `.env.local`
+4. Reference in workflow nodes
+
+**Option 2: Hardcoded (Learning Only)**
+- Use values from `.env.local` directly in HTTP Request nodes
+- Only for course exercises, never for production
+
+See `.env.local` for your credentials and detailed usage instructions.
 
 ### For Client Deployments
 Clients **don't need** course credentials. Each client gets:
 - Their own `N8N_BASIC_AUTH_USER` and password
 - Their own Railway domain
 - Their own workflows and data
+- Course credentials are never needed for client work
 
 ## 🛡️ Best Practices
 
