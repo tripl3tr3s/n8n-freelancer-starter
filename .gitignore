@@ -1,0 +1,36 @@
+# n8n Data
+.n8n/
+*.db
+*.db-shm
+*.db-wal
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Node modules (if using custom setup)
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Railway
+.railway/
+
+# Backup files
+backups/
+*.backup

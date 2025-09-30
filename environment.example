@@ -1,0 +1,47 @@
+# n8n Ultra-Lean Configuration for Railway
+# Copy these to your Railway environment variables
+
+# ===== BASIC AUTHENTICATION (REQUIRED) =====
+N8N_BASIC_AUTH_ACTIVE=true
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=change-this-secure-password-123
+
+# ===== DATABASE (SQLite for cost optimization) =====
+DB_TYPE=sqlite
+DB_SQLITE_VACUUM_ON_STARTUP=true
+
+# ===== EXECUTION DATA PRUNING (7-day retention) =====
+EXECUTIONS_DATA_PRUNE=true
+EXECUTIONS_DATA_MAX_AGE=168
+EXECUTIONS_DATA_PRUNE_MAX_COUNT=10000
+
+# ===== WEBHOOK CONFIGURATION =====
+WEBHOOK_URL=https://your-app.railway.app/
+N8N_PROTOCOL=https
+N8N_HOST=your-app.railway.app
+N8N_PORT=5678
+
+# ===== LOCALIZATION (Mexican Market) =====
+GENERIC_TIMEZONE=America/Mexico_City
+TZ=America/Mexico_City
+N8N_DEFAULT_LOCALE=es
+
+# ===== RESOURCE OPTIMIZATION =====
+N8N_METRICS=false
+N8N_DIAGNOSTICS_ENABLED=false
+N8N_LOG_LEVEL=warn
+N8N_LOG_OUTPUT=file
+EXECUTIONS_PROCESS=main
+
+# ===== SECURITY =====
+N8N_SECURE_COOKIE=true
+N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES=true
+
+# ===== EDITOR CONFIGURATION =====
+N8N_PERSONALIZATION_ENABLED=true
+N8N_VERSION_NOTIFICATIONS_ENABLED=false
+N8N_TEMPLATES_ENABLED=true
+N8N_TEMPLATES_HOST=https://api.n8n.io
+
+# ===== OPTIONAL: Custom Branding =====
+# N8N_EDITOR_BASE_URL=https://your-app.railway.app/
