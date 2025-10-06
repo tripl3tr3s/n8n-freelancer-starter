@@ -9,4 +9,4 @@ restartPolicyMaxRetries = 3
 # Remove startCommand - let Dockerfile ENTRYPOINT handle it
 
 [[deploy.volumes]]
-mountPath = "/home/node/.n8n"
+mountPath = "/root/.n8n"
