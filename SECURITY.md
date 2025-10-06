@@ -85,11 +85,31 @@ Always add authentication to webhook triggers:
 - Rotate webhook URLs if compromised
 - Enable HTTPS only (Railway does this automatically)
 
-### 5. Backup Strategy
-Railway volumes can be backed up:
+### 5. Volume Data Protection
+
+Railway persistent volumes store ALL your n8n data at `/home/node/.n8n`:
+- **SQLite database** (`database.sqlite`) - All workflows, executions, credentials
+- **Encrypted credentials** - API keys, OAuth tokens
+- **Workflow files** - Your automation logic
+- **Execution history** - Past workflow runs (pruned after 7 days)
+
+**Verify volume is properly mounted:**
+```bash
+# Check volume mount point
+railway run sh -c "ls -la /home/node/.n8n"
+
+# Verify database exists
+railway run sh -c "ls -la /home/node/.n8n/database.sqlite"
+```
+
+**Backup strategy:**
 ```bash
 # Create manual backup before major changes
-railway volume backup n8n_data
+railway run sh -c "tar -czf /tmp/n8n-backup.tar.gz /home/node/.n8n"
+
+# Download backup (if needed)
+# Note: Railway doesn't provide direct volume backup commands yet
+# Best practice: Export workflows via n8n UI regularly
 ```
 
 ## 🚨 What To Do If Credentials Leak

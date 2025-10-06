@@ -66,8 +66,8 @@ railway login
 # 3. Create new project
 railway init
 
-# 4. Add persistent volume
-railway volume create --name n8n_data --mount /home/node/.n8n
+# 4. Persistent volume is configured in railway.toml
+# Volume automatically mounts to /home/node/.n8n for SQLite database and workflow data
 
 # 5. Set environment variables
 railway variables set N8N_BASIC_AUTH_ACTIVE=true
@@ -170,6 +170,15 @@ railway up
 See `docs/UPGRADE_PATH.md` for detailed migration guides.
 
 ## 🐛 Troubleshooting
+
+### Data Not Persisting Across Deployments
+1. Verify volume is configured in `railway.toml`:
+   ```toml
+   [[deploy.volumes]]
+   mountPath = "/home/node/.n8n"
+   ```
+2. Check volume is mounted: `railway run sh -c "ls -la /home/node/.n8n"`
+3. Verify SQLite database exists: `railway run sh -c "ls -la /home/node/.n8n/database.sqlite"`
 
 ### Can't Access n8n UI
 1. Check Railway logs: `railway logs`

@@ -7,16 +7,20 @@ USER root
 # Create data directory
 RUN mkdir -p /home/node/.n8n
 
-# Create entrypoint script that fixes permissions on startup
-RUN echo '#!/bin/sh\n\
-  # Fix ownership of mounted volume\n\
-  chown -R node:node /home/node/.n8n 2>/dev/null || true\n\
-  # Start n8n as node user\n\
-  exec su-exec node n8n start' > /entrypoint.sh && \
-  chmod +x /entrypoint.sh
+# Install su-exec for user switching
+RUN apk add --no-cache su-exec
 
-# Install su-exec for user switching (if not already present)
-RUN apk add --no-cache su-exec 2>/dev/null || true
+# Create entrypoint script using cat with heredoc (more reliable)
+RUN cat > /entrypoint.sh << 'EOF'
+#!/bin/sh
+# Fix ownership of mounted volume
+chown -R node:node /home/node/.n8n 2>/dev/null || true
+# Start n8n as node user
+exec su-exec node n8n start
+EOF
+
+# Make entrypoint executable
+RUN chmod +x /entrypoint.sh
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \

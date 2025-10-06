@@ -6,6 +6,12 @@ N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=change-this-secure-password-123
 
+# ===== PERSISTENT VOLUME CONFIGURATION =====
+# Volume mount point: /home/node/.n8n (configured in railway.toml)
+# Contains: SQLite database, credentials, workflow files, execution data
+# Database location: /home/node/.n8n/database.sqlite
+# NOTE: Volume persists across deployments - your data is safe!
+
 # ===== DATABASE (SQLite for cost optimization) =====
 DB_TYPE=sqlite
 DB_SQLITE_VACUUM_ON_STARTUP=true
