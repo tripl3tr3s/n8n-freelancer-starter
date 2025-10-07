@@ -1,7 +1,8 @@
 # Ultra-Lean n8n Dockerfile for Railway with Volume Support
 FROM n8nio/n8n:latest
 
-# Run as root (single-user deployment, no security concerns)
+# Run as root for volume write permissions (Railway volumes mount as root)
+# Data will be stored at /root/.n8n
 USER root
 
 # Health check
