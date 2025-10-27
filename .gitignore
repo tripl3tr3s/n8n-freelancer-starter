@@ -37,4 +37,5 @@ backups/
 
 # Claude AI
 .claude/
-CLAUDE.md 
+CLAUDE.md
+roadmap.md 
