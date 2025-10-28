@@ -1,11 +1,6 @@
 # n8n Ultra-Lean Configuration for Railway
 # Copy these to your Railway environment variables
 
-# ===== BASIC AUTHENTICATION (REQUIRED) =====
-N8N_BASIC_AUTH_ACTIVE=true
-N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=change-this-secure-password-123
-
 # ===== PERSISTENT VOLUME CONFIGURATION =====
 # Volume mount point: /root/.n8n (configured in railway.toml)
 # Contains: SQLite database, credentials, workflow files, execution data
@@ -51,6 +46,10 @@ N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES=true
 N8N_BLOCK_ENV_ACCESS_IN_NODE=false
 N8N_GIT_NODE_DISABLE_BARE_REPOS=true
 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+
+# ===== RAILWAY DEPLOYMENT =====
+# Required for Railway's reverse proxy
+N8N_TRUST_PROXY=true
 
 # ===== EDITOR CONFIGURATION =====
 N8N_PERSONALIZATION_ENABLED=true
